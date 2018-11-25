@@ -79,7 +79,7 @@ static int process(unsigned nframes, void *userdata)
 
     float oscillator_freq = (float)ctx.current_bin / fft_size;
     for (unsigned i = 0; i < nframes && ctx.fft_in_fill < fft_size; ++i) {
-        output[i] = std::sin(ctx.oscillator_phase);
+        output[i] = std::sin(2.0 * M_PI * ctx.oscillator_phase);
         ctx.oscillator_phase += oscillator_freq;
         ctx.oscillator_phase -= (int)ctx.oscillator_phase;
     }
